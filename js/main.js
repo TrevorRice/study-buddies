@@ -19,14 +19,36 @@ function HomeControl(controlDiv, map){
   var controlText = document.createElement('div');
   controlText.style.fontFamily = 'Arial,sans-serif';
   controlText.style.fontSize = '12px';
-  controlText.style.paddingLeft = '4px';
-  controlText.style.paddingRight = '4px';
-  controlText.innerHTML = '<b>Hi</b>';
+  controlText.style.paddingLeft = '20px';
+  controlText.style.paddingRight = '20px';
+  controlText.innerHTML = '<b>Classes</b>';
   controlUI.appendChild(controlText);
+  
+  var controlUI2 = document.createElement('div');
+  controlUI2.style.backgroundColor = 'white';
+  controlUI2.style.borderStyle = 'solid';
+  controlUI2.style.borderWidth = '2px';
+  controlUI2.style.cursor = 'pointer';
+  controlUI2.style.textAlign = 'center';
+  controlUI2.style.title = 'Main button interface';
+  controlDiv.appendChild(controlUI2);
+  
+  //set CSS for control interior
+  var controlText2 = document.createElement('div');
+  controlText2.style.fontFamily = 'Arial,sans-serif';
+  controlText2.style.fontSize = '12px';
+  controlText2.style.paddingLeft = '20px';
+  controlText2.style.paddingRight = '20px';
+  controlText2.innerHTML = '<b>Area</b>';
+  controlUI2.appendChild(controlText2);
   
   //click
   
   google.maps.event.addDomListener(controlUI, 'click', function(){
+    map.setCenter(champaignUrbana)
+  });
+  
+  google.maps.event.addDomListener(controlUI2, 'click', function(){
     map.setCenter(champaignUrbana)
   });
 }
