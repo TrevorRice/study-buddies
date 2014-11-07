@@ -1,7 +1,9 @@
 var allMarkers = [
   ['My Location', 40.1145152, -88.2296416],
   ['Siebel', 40.1140258, -88.2248073],
-  ['DCL', 40.113138, -88.226661]
+  ['DCL', 40.113138, -88.226661],
+  ['ECE', 40.1147211, -88.2278546],
+  ['ECE', 40.1147511, -88.2279546]
 ];
 
 function initialize() {
@@ -32,7 +34,7 @@ function setMarkers(map, locations) {
     var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: loc[0]
+        //title: loc[0]
     });
     
     var infoWindow = new google.maps.InfoWindow();
