@@ -5,10 +5,23 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
-		<div id="wrapper">
-			<div id="courses"></div>
-			<div id="map-canvas"></div>
+		<div id="course-menu">
+			<select onchange="changeEventHandler(event);">
+  				<option value="all" class="course">All Courses</option>
+  				<option value="465" class="course">CS 465</option>
+  				<option value="411" class="course">CS 411</option>
+  				<option value="374" class="course">CS 374</option>
+			</select>
 		</div>
+		<div id="dist-vals">
+			<select onchange="changeZoomHandler(event)">
+				<option value=".25" class="dist" selected>.25 miles</option>
+				<option value=".5" class="dist">.5 mile</option>
+				<option value="1" class="dist">1 mile</option>
+			</select>
+		</div>
+		<div id="settings"></div>
+		<div id="map-canvas"></div>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8s9CeAkmWkDpx5ej35rsiFgMyRzzqUyI"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>

@@ -1,11 +1,7 @@
-html, body, #wrapper {
+html, body, #map-canvas {
 	height: 100%;
 	margin: 0px;
 	padding: 0px;
-}
-
-#map-canvas {
-	height: 100%;
 }
 
 /* User Window Styling */
@@ -36,4 +32,33 @@ html, body, #wrapper {
 	height: 20%;
 	width: 99%;
 	border: 1px solid black;
+}
+
+#userButtons {
+	position: absolute;
+	bottom: 0;
+	height: 20%;
+	width: 99%;
+	border: 1px solid black;
+}
+
+/* Courses */
+#course-menu {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	z-index: 5;
+}
+
+#course-menu select, #dist-vals select {
+	height: 30px;
+	font-size: 15px;
+}
+
+/* Distances */
+#dist-vals {
+	position: absolute;
+	top: 30px;
+	left: 130px;
+	z-index: 5;
 }
