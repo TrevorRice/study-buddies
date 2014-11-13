@@ -75,15 +75,17 @@ html, body, #map-canvas {
 
 /* Specific Friend */
 .friend {
-	border: 1px solid black;
+	border: 1px white;
 	padding: 10px;
 	position: relative;
+	
 
 }
 
 ul{
 	list-style-type: none;
 }
+
 
 .friend:hover{
 	background-color: #dfe3ee;
