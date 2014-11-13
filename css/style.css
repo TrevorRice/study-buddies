@@ -42,6 +42,10 @@ html, body, #map-canvas {
 	border: 1px solid black;
 }
 
+#userButtons button {
+	width: 33%;
+}
+
 /* Courses */
 #course-menu {
 	position: absolute;

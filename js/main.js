@@ -1,7 +1,8 @@
 var map;
 var myLoc;
 var markers = [];
-//var windows = [];
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
 
 var allMarkers = [
   ['My Location', 40.1145152, -88.2296416, 'You', 'Studying for midterm.'],
@@ -23,6 +24,7 @@ var allMarkers = [
 ];
 
 function initialize() {
+  directionsDisplay = new google.maps.DirectionsRenderer();
   myLoc = new google.maps.LatLng(40.1145152,-88.2296416);
 
   var mapOptions = {
@@ -45,6 +47,7 @@ function initialize() {
   
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+  directionsDisplay.setMap(map);
   setMarkers(map, allMarkers);
 }
 
@@ -59,7 +62,7 @@ function setMarkers(map, locations) {
     markers.push(marker);
 
     var infoWindow = new google.maps.InfoWindow();
-    google.maps.event.addListener(marker, 'mouseover', (function(marker) {
+    google.maps.event.addListener(marker, 'click', (function(marker) {
       return function () {
         var content;
 
@@ -82,7 +85,11 @@ function setMarkers(map, locations) {
           '</h3><p>'+
           allMarkers[2][4]+
           '</p></div>'+
-          '<div id="userButtons">Buttons</div>'+
+          '<div id="userButtons">'+
+          '<button type="button">Chat</button>'+
+          '<button type="button">Add</button>'+
+          '<button type="button" onclick="getDirectionsShaun()">Directions</button>'+
+          '</div>'+
           '</div>';
         }
         else if(marker == markers[11]) {
@@ -93,7 +100,11 @@ function setMarkers(map, locations) {
           '</h3><p>'+
           allMarkers[11][4]+
           '</p></div>'+
-          '<div id="userButtons">Buttons</div>'+
+          '<div id="userButtons">'+
+          '<button type="button">Chat</button>'+
+          '<button type="button">Add</button>'+
+          '<button type="button" onclick="getDirectionsKetian()">Directions</button>'+
+          '</div>'+
           '</div>';
         }
         else {
@@ -104,24 +115,31 @@ function setMarkers(map, locations) {
           '</h3><p>'+
           loc[4]+
           '</p></div>'+
-          '<div id="userButtons">Buttons</div>'+
+          '<div id="userButtons">'+
+          '<button type="button">Chat</button>'+
+          '<button type="button">Add</button>'+
+          '<button type="button">Directions</button>'+
+          '</div>'+
           '</div>';
         }
       infoWindow.setContent(content);
       infoWindow.open(map, marker);
     }
     })(marker));
-    //windows.push(infoWindow);
-    google.maps.event.addListener(marker, 'mouseout', (function(marker) {
+    /*google.maps.event.addListener(marker, 'mouseout', (function(marker) {
       return function() {
-        infoWindow.close();
+        setTimeout(function() {
+          infoWindow.close();
+        }, 4000);
       }
-    })(marker));
+    })(marker));*/
   }
 }
 
 // Change markers given specified course
 function changeEventHandler(event) {
+  directionsDisplay.setMap(null);
+
   for (var i = 1; i < markers.length; i++) {
     markers[i].setVisible(true);
   }
@@ -183,6 +201,39 @@ function changeZoomHandler(event) {
   else if(event.target.value == '1') {
     map.setZoom(16);
   }
+}
+
+// Get directions to either Shaun or Ketian
+function getDirectionsShaun() {
+  var start = myLoc;
+  var end = new google.maps.LatLng(allMarkers[2][1],allMarkers[2][2]);
+
+  var request = {
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.WALKING
+  };
+  directionsService.route(request, function(result, status) {
+    if(status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(result);
+    }
+  });
+}
+
+function getDirectionsKetian() {
+  var start = myLoc;
+  var end = new google.maps.LatLng(allMarkers[11][1],allMarkers[11][2]);
+
+  var request = {
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(result, status) {
+    if(status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(result);
+    }
+  });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
