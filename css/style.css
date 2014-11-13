@@ -70,3 +70,11 @@ html, body, #map-canvas {
 	right: 30px;
 	z-index: 5;
 }
+
+#chats {
+    position: absolute;
+    margin: 20 px;
+    right: 10px;
+    bottom: 0px; 
+	z-index: 5;
+}

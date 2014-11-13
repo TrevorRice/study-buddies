@@ -185,4 +185,8 @@ function changeZoomHandler(event) {
   }
 }
 
+
+
+
+
 google.maps.event.addDomListener(window, 'load', initialize);

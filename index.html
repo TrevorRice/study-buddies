@@ -3,6 +3,7 @@
 	<head>
 		<title>StudyBuddies</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<div id="course-menu">
@@ -28,9 +29,41 @@
 				<li>Friend4</li>
 			</ul>
 		</div>
+        
+        <form id ="chats">
+
+            <textarea id="myTextArea" name="pl" cols="30" rows="5" onkeypress="send(event)" onfocus="this.value=''">
+            	
+            </textarea><br />
+               <input id="showBtn" name="button" type="button" onclick="send_bet();" value="send" />
+        </form>
 		<div id="map-canvas"></div>
+
+
+
+<script>
+function send_bet()
+{
+    var myTextArea = document.getElementById("myTextArea");
+    myTextArea.value = '';
+    myTextArea.select();
+}
+function send(event) 
+{ 
+    if(event.keyCode==13)  
+    {  
+        send_bet(); 
+        myTextArea.value = '';
+        myTextArea.focus();
+    } 
+} 
+</script>
+
+
+
+
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8s9CeAkmWkDpx5ej35rsiFgMyRzzqUyI"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</body>
 </html>
