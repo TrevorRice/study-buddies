@@ -4,22 +4,22 @@ var markers = [];
 //var windows = [];
 
 var allMarkers = [
-  ['My Location', 40.1145152, -88.2296416],
-  ['Siebel1', 40.1140258, -88.2248073],
-  ['Siebel2', 40.1141296, -88.2248938],
-  ['Siebel3', 40.1141942, -88.2248744],
-  ['DCL1', 40.113138, -88.226661],
-  ['DCL2', 40.113259, -88.226775],
-  ['ECE1', 40.1147211, -88.2278546],
-  ['ECE2', 40.1147511, -88.2279546],
-  ['Grainger1', 40.112631, -88.226893],
-  ['Grainger2', 40.112531, -88.226993],
-  ['Grainger3', 40.112531, -88.226793],
-  ['Grainger4', 40.112431, -88.226893],
-  ['Grainger5', 40.112431, -88.226993],
-  ['House1', 40.113649, -88.231620],
-  ['House2', 40.114789, -88.233132],
-  ['House3', 40.115191, -88.233819]
+  ['My Location', 40.1145152, -88.2296416, 'You', 'Studying for midterm.'],
+  ['Siebel1', 40.1140258, -88.2248073, 'Name', 'Description.'],
+  ['Siebel2', 40.1141296, -88.2248938, 'Shaun Chung', 'Working on homework.'],
+  ['Siebel3', 40.1141942, -88.2248744, 'Name', 'Description.'],
+  ['DCL1', 40.113138, -88.226661, 'Name','Description.'],
+  ['DCL2', 40.113259, -88.226775, 'Name', 'Description.'],
+  ['ECE1', 40.1147211, -88.2278546, 'Name', 'Description.'],
+  ['ECE2', 40.1147511, -88.2279546, 'Name', 'Description.'],
+  ['Grainger1', 40.112631, -88.226893, 'Name', 'Description.'],
+  ['Grainger2', 40.112531, -88.226993, 'Name', 'Description.'],
+  ['Grainger3', 40.112531, -88.226793, 'Name', 'Description.'],
+  ['Grainger4', 40.112431, -88.226893, 'Ketian Zhang', 'Studying for midterm.'],
+  ['Grainger5', 40.112431, -88.226993, 'Name', 'Description.'],
+  ['House1', 40.113649, -88.231620, 'Name', 'Description.'],
+  ['House2', 40.114789, -88.233132, 'Name', 'Description.'],
+  ['House3', 40.115191, -88.233819, 'Name', 'Description.']
 ];
 
 function initialize() {
@@ -66,14 +66,44 @@ function setMarkers(map, locations) {
         if(marker == markers[0]) {
           content = '<div id="userwindow">'+
           '<div id="profilepic"></div>'+
-          '<div id="description">You</div>'+
+          '<div id="description"><h3>'+
+          allMarkers[0][3]+
+          '</h3><p>'+
+          allMarkers[0][4]+
+          '</p></div>'+
           '<div id="addToMap">Add To Map</div>'+
+          '</div>';
+        }
+        else if(marker == markers[2]) {
+          content = '<div id="userwindow">'+
+          '<div id="profilepic"></div>'+
+          '<div id="description"><h3>'+
+          allMarkers[2][3]+
+          '</h3><p>'+
+          allMarkers[2][4]+
+          '</p></div>'+
+          '<div id="userButtons">Buttons</div>'+
+          '</div>';
+        }
+        else if(marker == markers[11]) {
+          content = '<div id="userwindow">'+
+          '<div id="profilepic"></div>'+
+          '<div id="description"><h3>'+
+          allMarkers[11][3]+
+          '</h3><p>'+
+          allMarkers[11][4]+
+          '</p></div>'+
+          '<div id="userButtons">Buttons</div>'+
           '</div>';
         }
         else {
           content = '<div id="userwindow">'+
           '<div id="profilepic"></div>'+
-          '<div id="description">You</div>'+
+          '<div id="description"><h3>'+
+          loc[3]+
+          '</h3><p>'+
+          loc[4]+
+          '</p></div>'+
           '<div id="userButtons">Buttons</div>'+
           '</div>';
         }
