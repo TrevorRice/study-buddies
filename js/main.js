@@ -74,7 +74,7 @@ function setMarkers(map, locations) {
           '</h3><p>'+
           allMarkers[0][4]+
           '</p></div>'+
-          '<div id="addToMap">Add To Map</div>'+
+          '<div id="addToMap"></div>'+
           '</div>';
         }
         else if(marker == markers[2]) {
@@ -254,24 +254,6 @@ function addFriend() {
   ul.appendChild(li);
 }
 
-/*(function() {
-
-  $('#chat header').on('click', function() {
-
-    $('.chat').slideToggle(300, 'swing');
-    //$('.chat-message-counter').fadeToggle(300, 'swing');
-
-  });
-
-  $('.chat-close').on('click', function(e) {
-
-    e.preventDefault();
-    $('#chat').fadeOut(300);
-
-  });
-
-}) ();*/
-
 function minChat() {
   $('.chat').slideToggle(300, 'swing');
 }
@@ -283,4 +265,5 @@ function closeChat() {
 function showChat() {
   document.getElementById("chat").style.display = "block";
 }
+
 google.maps.event.addDomListener(window, 'load', initialize);
