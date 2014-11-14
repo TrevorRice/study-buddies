@@ -68,7 +68,7 @@ function setMarkers(map, locations) {
 
         if(marker == markers[0]) {
           content = '<div id="userwindow">'+
-          '<div id="profilepic"></div>'+
+          '<div id="myprofilepic"></div>'+
           '<div id="description"><h3>'+
           allMarkers[0][3]+
           '</h3><p>'+
@@ -86,8 +86,8 @@ function setMarkers(map, locations) {
           allMarkers[2][4]+
           '</p></div>'+
           '<div id="userButtons">'+
-          '<button type="button">Chat</button>'+
-          '<button type="button">Add</button>'+
+          '<button type="button" onclick="showChat()">Chat</button>'+
+          '<button type="button" onclick="addFriendS()">Add</button>'+
           '<button type="button" onclick="getDirectionsShaun()">Directions</button>'+
           '</div>'+
           '</div>';
@@ -102,7 +102,7 @@ function setMarkers(map, locations) {
           '</p></div>'+
           '<div id="userButtons">'+
           '<button type="button">Chat</button>'+
-          '<button type="button">Add</button>'+
+          '<button type="button" onclick="addFriendK()">Add</button>'+
           '<button type="button" onclick="getDirectionsKetian()">Directions</button>'+
           '</div>'+
           '</div>';
@@ -117,7 +117,7 @@ function setMarkers(map, locations) {
           '</p></div>'+
           '<div id="userButtons">'+
           '<button type="button">Chat</button>'+
-          '<button type="button">Add</button>'+
+          '<button type="button" onclick="addFriend()">Add</button>'+
           '<button type="button">Directions</button>'+
           '</div>'+
           '</div>';
@@ -126,13 +126,6 @@ function setMarkers(map, locations) {
       infoWindow.open(map, marker);
     }
     })(marker));
-    /*google.maps.event.addListener(marker, 'mouseout', (function(marker) {
-      return function() {
-        setTimeout(function() {
-          infoWindow.close();
-        }, 4000);
-      }
-    })(marker));*/
   }
 }
 
@@ -236,4 +229,58 @@ function getDirectionsKetian() {
   });
 }
 
+// Add person to friend's list
+function addFriendS() {
+  var ul = document.getElementById("dropdown");
+  var li = document.createElement("li");
+
+  li.appendChild(document.createTextNode("Shaun Chung"));
+  ul.appendChild(li);
+}
+
+function addFriendK() {
+  var ul = document.getElementById("dropdown");
+  var li = document.createElement("li");
+
+  li.appendChild(document.createTextNode("Ketian Zhang"));
+  ul.appendChild(li);
+}
+
+function addFriend() {
+  var ul = document.getElementById("dropdown");
+  var li = document.createElement("li");
+
+  li.appendChild(document.createTextNode("Another Friend"));
+  ul.appendChild(li);
+}
+
+/*(function() {
+
+  $('#chat header').on('click', function() {
+
+    $('.chat').slideToggle(300, 'swing');
+    //$('.chat-message-counter').fadeToggle(300, 'swing');
+
+  });
+
+  $('.chat-close').on('click', function(e) {
+
+    e.preventDefault();
+    $('#chat').fadeOut(300);
+
+  });
+
+}) ();*/
+
+function minChat() {
+  $('.chat').slideToggle(300, 'swing');
+}
+
+function closeChat() {
+  $('#chat').fadeOut(300);
+}
+
+function showChat() {
+  document.getElementById("chat").style.display = "block";
+}
 google.maps.event.addDomListener(window, 'load', initialize);

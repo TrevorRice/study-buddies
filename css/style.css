@@ -1,8 +1,51 @@
+@charset "utf-8";
+
 html, body, #map-canvas {
 	height: 100%;
 	margin: 0px;
 	padding: 0px;
 }
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+a { text-decoration: none; }
+
+h4, h5 {
+	line-height: 1.5em;
+	margin: 0;
+}
+
+hr {
+	background: #e9e9e9;
+    border: 0;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 1px;
+    margin: 0;
+    min-height: 1px;
+}
+
+input {
+	border: 0;
+	color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: normal;
+    margin: 0;
+}
+
+p { margin: 0; }
+
+.clearfix { *zoom: 1; } /* For IE 6/7 */
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after { clear: both; }
 
 /* User Window Styling */
 #userwindow {
@@ -11,19 +54,29 @@ html, body, #map-canvas {
 	width: 250px;
 }
 
-#profilepic {
+#profilepic, #myprofilepic {
 	height: 70%;
 	width: 30%;
 	float: left;
 	padding-right: 2px;
-	border: 1px solid black;
+}
+
+#profilepic {
+	background-image: url("/home/trevor/Pictures/default_profile.jpg");
+	background-size: 100%;
+}
+
+#myprofilepic {
+	background-image: url("/home/trevor/Pictures/IMG_0367.JPG");
+	background-size: 100%;
+	background-position: 50% 50%;
 }
 
 #description {
 	height: 70%;
 	width: 65%;
 	float: right;
-	border: 1px solid black;
+	top: 0px;
 }
 
 #addToMap {
@@ -39,11 +92,10 @@ html, body, #map-canvas {
 	bottom: 0;
 	height: 20%;
 	width: 99%;
-	border: 1px solid black;
 }
 
 #userButtons button {
-	width: 33%;
+	width: 32%;
 }
 
 /* Courses */
@@ -57,6 +109,8 @@ html, body, #map-canvas {
 #course-menu select, #dist-vals select {
 	height: 30px;
 	font-size: 15px;
+	border-radius: 4px;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.2);
 }
 
 /* Distances */
@@ -68,9 +122,146 @@ html, body, #map-canvas {
 }
 
 /* Friend's List */
-#friends {
+.friendslist {
 	position: absolute;
 	top: 30px;
 	right: 30px;
 	z-index: 5;
+	width: 150px;
+	height: 30px;
+	background-color: white;
+	border-radius: 4px;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+	cursor: pointer;
+}
+
+.dtype {
+	padding: 5px;
+	font-weight: bold;
+	border-bottom: 2px solid #e6e8ea;
+}
+
+.friendslist ul {
+	background: #fff;
+	border-radius: 0 0 5px 5px;
+	border: 1px solid rgba(0,0,0,0.2);
+	border-top: none;
+	border-bottom: none;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.dropdown li {
+	padding: 5px 2px;
+	border-bottom: 1px solid #e6e8ea;
+}
+
+.dropdown li:hover {
+	color: #57a9d9;
+}
+
+ul.dropdown {
+	display: none;
+}
+
+.friendslist:hover ul.dropdown {
+	display: block;
+}
+
+/* Chat */
+#chat {
+	bottom: 0;
+	font-size: 12px;
+	right: 30px;
+	position: fixed;
+	width: 300px;
+	z-index: 5;
+	display: none;
+}
+
+#chat header {
+	background: #293239;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	cursor: pointer;
+	padding: 16px 24px;
+}
+
+#chat h4:before {
+	background: #1a8a34;
+	border-radius: 50%;
+	/*content: "";*/
+	display: inline-block;
+	height: 8px;
+	margin: 0 8px 0 0;
+	width: 8px;
+}
+
+#chat h4 {
+	font-size: 12px;
+}
+
+#chat h5 {
+	font-size: 10px;
+}
+
+#chat form {
+	padding: 24px;
+}
+
+#chat input[type="text"] {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 8px;
+	outline: none;
+	width: 234px;
+}
+
+.chat-close {
+	background: #1b2126;
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	float: right;
+	font-size: 10px;
+	height: 16px;
+	line-height: 16px;
+	margin: 2px 0 0 0;
+	text-align: center;
+	width: 16px;
+}
+
+.chat {
+	background: #fff;
+}
+
+.chat-history {
+	height: 252px;
+	padding: 8px 24px;
+	overflow-y: scroll;
+}
+
+.chat-message {
+	margin: 16px 0;
+}
+
+.chat-message img {
+	border-radius: 50%;
+	float: left;
+}
+
+.chat-message-content {
+	margin-left: 10px;
+}
+
+.chat-time {
+	float: right;
+	font-size: 10px;
+}
+
+.chat-feedback {
+	font-style: italic;	
+	margin: 0 0 0 80px;
 }
