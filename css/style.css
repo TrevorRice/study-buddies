@@ -63,12 +63,14 @@ p { margin: 0; }
 }
 
 #profilepic {
-	background-image: url("/home/trevor/Pictures/default_profile.jpg");
+	background-image: url("http://www.genengnews.com/app_themes/genconnect/images/default_profile.jpg");
+	/*background-image: url("/home/trevor/Pictures/default_profile.jpg");*/
 	background-size: 100%;
 }
 
 #myprofilepic {
-	background-image: url("/home/trevor/Pictures/IMG_0367.JPG");
+	background-image: url("http://i.imgur.com/G16sfNU.jpg");
+	/*background-image: url("/home/trevor/Pictures/IMG_0367.JPG");*/
 	background-size: 100%;
 	background-position: 50% 50%;
 }
@@ -155,7 +157,8 @@ p { margin: 0; }
 	z-index: 5;
 	width: 150px;
 	height: 70px;
-	background: url("/home/trevor/Pictures/21202.png") no-repeat;
+	background: url("http://cdn.flaticon.com/png/256/21202.png") no-repeat;
+	/*background: url("/home/trevor/Pictures/21202.png") no-repeat;*/
 	background-size: 45%;
 	background-position: center top;
 	/*background-color: #336ca6;*/
